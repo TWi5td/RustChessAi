@@ -1,0 +1,17 @@
+[package]
+name = "chess_ai_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+macroquad    = "0.4"
+chess        = "3.2.0"
+rand = "0.8.5"
+
+[[bin]]
+name = "desktop"
+path = "src/bin/desktop.rs"
+
+[profile.release]
+opt-level = "z"
+lto       = true

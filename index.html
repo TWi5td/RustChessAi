@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Chess AI</title>
+
+  <!-- Tell Trunk “only build the wasm target named chess_ai_app” -->
+  <link data-trunk rel="rust" data-target-name="chess_ai_app" />
+
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</head>
+<body>
+  <canvas id="quad-canvas"></canvas>
+
+  <script type="module">
+    import init from "./chess_ai_app.js";
+    async function run() {
+      await init("./chess_ai_app_bg.wasm");
+    }
+    run();
+  </script>
+</body>
+</html>
